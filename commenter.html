@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>ManFord services</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: rgb(1, 20, 19);
+      color: beige;
+      text-align: center;
+    }
+    .comment {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 10px;
+    }
+    .comment img {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+    .comment-content {
+      background: #1a1212;
+      padding: 5px 10px;
+      border-radius: 5px;
+      max-width: 300px;
+    }
+    .username {
+      font-weight: bold;
+      margin-bottom: 3px;
+    }
+    .hidden-comment {
+      display: none;
+    }
+    centrer {
+        text-align: center;
+        align-items: center;
+    }
+  </style>
+</head>
+<body>
+     <header>
+    <h1>ARENA CULTURE</h1>
+    <nav>
+      <ul>
+        <li><a href="video.html">NOS VIDEOS</a></li>
+        <li><a href="photo.html">NOTRE ALBUM</a></li>  
+        <li><a href="propos.html">A PROPOS DE NOUS </a></li> 
+        <li><a href="question.html">FOIRE AUX QUESTIONS</a></li>
+        <li><a href="condition.html">CONDITION D'UTILISATION</a></li> 
+        <li><a href="commenter.html">COMMENTER ICI</a></li>
+        <li><a href="contact.html">CONTACTEZ-NOUS</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div style="max-width: 400px;">
+    <p>🎥 Emission : <strong>Mr Etoile x FITCH ONE</strong></p>
+
+    <button onclick="like()">👍 Like (<span id="likeCount">0</span>)</button>
+    <button onclick="love()">❤️ J’aime (<span id="loveCount">0</span>)</button>
+    <button onclick="toggleComment()">💬 Commenter (<span id="commentCount">0</span>)</button>
+
+    <div id="commentSection" style="display:none; margin-top:10px;">
+    <input type="text" id="username" placeholder="Nom d'utilisateur"><br><br>
+      <textarea id="commentInput" rows="2" placeholder="Écris ton commentaire ici..."></textarea><br>
+      <button onclick="addComment()">Envoyer</button>
+      <div id="commentList"></div>
+      <button id="showMoreBtn" style="display:none;" onclick="showAllComments()">Voir tous les commentaires</button>
+    </div>
+    </div>
+  <script>
+    let likeCount = 0;
+    let loveCount = 0;
+    let commentCount = 0;
+    let commentList = [];
+
+    function like() {
+      likeCount++;
+      document.getElementById("likeCount").innerText = likeCount;
+    }
+
+    function love() {
+      loveCount++;
+      document.getElementById("loveCount").innerText = loveCount;
+    }
+
+    function toggleComment() {
+      const section = document.getElementById("commentSection");
+      section.style.display = section.style.display === "none" ? "block" : "none";
+    }
+
+    function addComment() {
+      const name = document.getElementById("username").value.trim();
+      const text = document.getElementById("commentInput").value.trim();
+      if (name && text) {
+        commentList.push({ name, text });
+        commentCount++;
+        document.getElementById("commentCount").innerText = commentCount;
+        document.getElementById("username").value = "";
+        document.getElementById("commentInput").value = "";
+        renderComments();
+      }
+    }
+
+    function renderComments() {
+      const list = document.getElementById("commentList");
+      list.innerHTML = "";
+      const limit = 5;
+
+      for (let i = 0; i < commentList.length; i++) {
+        const comment = commentList[i];
+        const div = document.createElement("div");
+        div.className = "comment";
+        if (i >= limit) div.classList.add("hidden-comment");
+
+        div.innerHTML = `
+          <img src="https://via.placeholder.com/30" alt="avatar">
+          <div class="comment-content">
+            <div class="username">comment.name</div>
+            <div>{comment.text}</div>
+          </div>
+        `;
+        list.appendChild(div);
+      }
+
+      const showMoreBtn = document.getElementById("showMoreBtn");
+      showMoreBtn.style.display = commentList.length > limit ? "inline-block" : "none";
+    }
+
+    function showAllComments() {
+      const hidden = document.querySelectorAll(".hidden-comment");
+      hidden.forEach(el => el.style.display = "flex");
+      document.getElementById("showMoreBtn").style.display = "none";
+    }
+  </script>
+
+</body>
+</html>
+

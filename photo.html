@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>ManFord services</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>ARENA CULTURE</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Accueil</a></li>
+        <li><a href="#">Politique</a></li>
+        <li><a href="#">Économie</a></li>
+        <li><a href="#">Sports</a></li>
+        <li><a href="#">Culture</a></li>
+      </ul>
+    </nav>
+  </header>
+    <p>Bienvenue sur <strong>Arena Culture,</strong> votre solution complète pour vos événements et besoins du savoir à Lubumbashi !</p>
+          <p><strong>Arena Culture</strong>, votre plateforme pour tous les services liés à la culture, la Politique, l'économie et le sport.</p>
+  
+            <div class="foot">
+    <div class="foo">
+      <div class="fo">
+        
+<h1>ALBUM</h1>
+</div>
+</div>
+</div>
+<br>
+<h2>Galerie Photos</h2>
+<div class="gallery">
+
+     <div class="photo">
+    <img src="0.jpg" alt="Photo 1" onclick="openFull(this)">
+    <div class="actions">
+      <button onclick="likePhoto(this)">👍 <span>0</span></button>
+      <a href="0.jpg" download>⬇️ Télécharger</a>
+    </div>
+  </div>
+
+  <div class="photo">
+    <img src="1.jpg" alt="Photo 1" onclick="openFull(this)">
+    <div class="actions">
+      <button onclick="likePhoto(this)">👍 <span>0</span></button>
+      <a href="1.jpg" download>⬇️ Télécharger</a>
+    </div>
+  </div>
+  <div class="photo">
+    <img src="2.jpg" alt="Photo 2" onclick="openFull(this)">
+    <div class="actions">
+      <button onclick="likePhoto(this)">👍 <span>0</span></button>
+      <a href="2.jpg" download>⬇️ Télécharger</a>
+    </div>
+  </div>
+ <div class="photo">
+    <img src="3.jpg" alt="Photo 1" onclick="openFull(this)">
+    <div class="actions">
+      <button onclick="likePhoto(this)">👍 <span>0</span></button>
+      <a href="3.jpg" download>⬇️ Télécharger</a>
+    </div>
+  </div>
+
+ <div class="photo">
+    <img src="4.jpg" alt="Photo 1" onclick="openFull(this)">
+    <div class="actions">
+      <button onclick="likePhoto(this)">👍 <span>0</span></button>
+      <a href="4.jpg" download>⬇️ Télécharger</a>
+    </div>
+  </div>
+
+   <div class="photo">
+    <img src="5.jpg" alt="Photo 1" onclick="openFull(this)">
+    <div class="actions">
+      <button onclick="likePhoto(this)">👍 <span>0</span></button>
+      <a href="5.jpg" download>⬇️ Télécharger</a>
+    </div>
+  </div>
+
+ <div class="photo">
+    <img src="6.jpg" alt="Photo 1" onclick="openFull(this)">
+    <div class="actions">
+      <button onclick="likePhoto(this)">👍 <span>0</span></button>
+      <a href="6.jpg" download>⬇️ Télécharger</a>
+    </div>
+  </div>
+
+ <div class="photo">
+    <img src="7.jpg" alt="Photo 1" onclick="openFull(this)">
+    <div class="actions">
+      <button onclick="likePhoto(this)">👍 <span>0</span></button>
+      <a href="7.jpg" download>⬇️ Télécharger</a>
+    </div>
+  </div>
+
+ <div class="photo">
+    <img src="8.jpg" alt="Photo 1" onclick="openFull(this)">
+    <div class="actions">
+      <button onclick="likePhoto(this)">👍 <span>0</span></button>
+      <a href="8.jpg" download>⬇️ Télécharger</a>
+    </div>
+  </div>
+
+ <div class="photo">
+    <img src="9.jpg" alt="Photo 1" onclick="openFull(this)">
+    <div class="actions">
+      <button onclick="likePhoto(this)">👍 <span>0</span></button>
+      <a href="9.jpg" download>⬇️ Télécharger</a>
+    </div>
+  </div>
+
+ <div class="photo">
+    <img src="10.jpg" alt="Photo 1" onclick="openFull(this)">
+    <div class="actions">
+      <button onclick="likePhoto(this)">👍 <span>0</span></button>
+      <a href="10.jpg" download>⬇️ Télécharger</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- Affichage plein écran -->
+<div id="fullImage" onclick="this.style.display='none'">
+  <img id="imgFull" src="">
+</div>
+<style>
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+.photo {
+  width: 150px;
+}
+.photo img {
+  width: 100%;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  height: 70%;
+}
+.actions {
+  margin-top: 5px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+#fullImage {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+#fullImage img {
+  max-width: 90%;
+  max-height: 90%;
+}
+</style>
+
+<script>
+function likePhoto(btn) {
+  let count = btn.querySelector("span");
+  count.textContent = parseInt(count.textContent) + 1;
+}
+
+function openFull(img) {
+  const full = document.getElementById("fullImage");
+  document.getElementById("imgFull").src = img.src;
+  full.style.display = "flex";
+}
+</script>
+
+
+          <footer>
+    <p>&copy; 2025 ManFord Services. Tous droits réservés. <br>Lubumbashi, DRC</p>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>
